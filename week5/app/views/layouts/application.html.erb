@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
+</head>
+<body>
+<%= render 'layouts/header' %>
+<div class="container">
+	<% flash.each do |message_type, message| %>
+	<div class="alert alert-<%= message_type %>"><%= message %></div>
+	<% end %>
+	<%= yield %>
+</div>
+<div class="">
+  <%= link_to image_tag("rails_on_ruby.jpg", alt: "Rails logo",width: "80px",height: "80px"),
+            'http://rubyonrails.org/' %>
+</div>
+
+<%= render 'layouts/footer' %>
+
+</body>
+</html>
